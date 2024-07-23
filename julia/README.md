@@ -1,1 +1,1 @@
-Scripts e informaciòn de Julia
+Scripts e información de Julia
