@@ -2,13 +2,13 @@
 
 Podemos trabajar con código C++ en CUDA dentro de un notebook de Google Colab. Para ello, simplemente debemos seguir los pasos siguientes:
 
-1. Iniciamos sesión en una cuenta de Google para guardar todo nuestro trabajo a continuación.
-2. Nos dirigimos al sitio de Google Colab ya dentro de nuestra sesión (alternativamente podemos iniciar sesión después de ingresar este sitio, el paso 1 y 2 son intercambiables en orden)
-3. Seleccionamos la opción Crear un nuevo Notebook en la ventana emergente:
-El navegador nos abre una nueva pestaña con en el nuevo notebook creado. Tenemos la opción de cambiarle su nombre si seleccionamos el título del notebook "Untitled" arriba de la pestaña abierta del navegador.
+1. We sign in our Google account to save all our workflow below.
+2. Go to the Google Colab site while already logged in (alternatively, sign in after entering the Colab site, step 1 and 2 are interchangeable in order)
+3. Select the Create a new Notebook option in the pop-up window:
+The browser opens a new tab with the newly created notebook. You can change the name of a new notebook by clicking on the "Untitled" notebook title above the open browser tab, and by editing the name in the textbox appearing for it.
 4. In the Menu above, we look for the option Runtime, click on it and the submenu will give back a list of options, from which we click now on "Change Runtime type".
 5. A new window is shown and we need to change the selected option under "Hardware accelerator" to "T4 GPU". Next, we click Save and the window closes.
-6. After this, the runs should be changed to a GPU on which we are allowed to run our code. If the notebook is correctly linked to the T4 GPU, the secondary menu above should mark with a green tick that the T4 is already connected. Otherwise, we should click on "Connect" or "Reconnect" to enable the connection successfully.
+6. After this, our runs in the current notebook should be changed to a GPU on which we are allowed to run our code. If the notebook is correctly linked to the T4 GPU, the secondary menu above should mark with a green tick that the T4 is already connected. Otherwise, we should click on "Connect" or "Reconnect" to enable the connection successfully.
 7. Insert the next piece of code in a new code cell and run it:
 ```
 !nvidia-smi
