@@ -1,9 +1,9 @@
-# Trabajando con CUDA desde el notebook de Jupyter de Google Colab
+# Working with and Running CUDA from Google Colab's Jupyter notebook
 
-Podemos trabajar con código C++ en CUDA dentro de un notebook de Google Colab. Para ello, simplemente debemos seguir los pasos siguientes:
+We can work with C++ code in CUDA within a Google Colab notebook. To do this, we simply need to follow the steps below:
 
 1. We sign in our Google account to save all our workflow below.
-2. Go to the Google Colab site while already logged in (alternatively, sign in after entering the Colab site, step 1 and 2 are interchangeable in order)
+2. Go to the Google Colab site while already logged in (alternatively, sign in after opening a window in the Colab site, step 1 and 2 are interchangeable in order)
 3. Select the Create a new Notebook option in the pop-up window:
 The browser opens a new tab with the newly created notebook. You can change the name of a new notebook by clicking on the "Untitled" notebook title above the open browser tab, and by editing the name in the textbox appearing for it.
 4. In the Menu above, we look for the option Runtime, click on it and the submenu will give back a list of options, from which we click now on "Change Runtime type".
