@@ -35,14 +35,13 @@ The output should display the following:
 |  No running processes found                                                           |
 +---------------------------------------------------------------------------------------+
 ```
-which returns us the CUDA Version already installed in the kernel of Google Colab. As in the case shown here, to know the CUDA version we look at the first line of text in the right, which for this case says the version installed (July, 2024) is 12.2.
-Keep this in mind for later.
+which returns us the CUDA Version already installed in the kernel of Google Colab. As in the case shown here, to know our current CUDA version we look at the first line of text in the right, which for this case says the version installed here (as of July 2024) is 12.2. Keep this in mind for later.
 
-8. We need to ensure that we already have in our notebooks the CUDA nvcc compiler. Run in a new code cell:
+8. We need to ensure that we already have the CUDA nvcc compiler enabled for our notebooks run in the GPU. Run in a new code cell:
 ```
 !nvcc --version
 ```
-and we should be able to see the version of the Nvida nvcc compiler already installed. If we cannot see this, or if we want to update the nvcc compiler to the current version of CUDA we already have installed, then we must follow the next steps to install manually the compiler in our kernel:
+and we should be able to see the version of the Nvida nvcc compiler already installed. If we cannot see this, or if we want to update the nvcc compiler to a different version of CUDA we are willing to install, then we must follow the next steps to install manually CUDA and its compiler in our Google Colab kernel:
 
 9. Run each one of the following lines of code in a separate cell, one by one, waiting each to be executed succesfully cell by cell: 
 ```
@@ -54,7 +53,7 @@ and we should be able to see the version of the Nvida nvcc compiler already inst
 ```
 This should remove all the current dependencies and the current CUDA version.
 
-10. The following lines of commands were extracted from the NVIDIA official website. The latest version can be found here, and the former different list of versions can be found here. The next block is for the 12.2.0 version, but others can be configured or installed as well. It is recommended to run each line of code cell by cell, in different cells from above to the below end of the notebook, like in the previous step.
+10. The following lines of commands were extracted from the NVIDIA official website. The latest version can be found here, and the former different list of versions can be found here. The next block is for the 12.2.0 version, but others can be configured or installed as well. It is recommended to run each line of code cell by cell, in different cells from above to the below end of the notebook, just like we did in the step #9.
 
 ```
 !wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
@@ -69,7 +68,7 @@ This should remove all the current dependencies and the current CUDA version.
 ```
 !apt-get -y install cuda-12-2
 ```
-changing the ending of this command to "cuda-x-y" according to the number "x" of your version and "y" its subversion. For 15.4, the latest version available in July, 2024, you should run for example, the instructions for installing the version 15.4 in the step number #10 and then run in a new cell the command "!apt-get -y install cuda-15-4".
+changing the ending of this command to "cuda-x-y" according to the number "x" of your version and "y" its subversion. For 15.4, the latest version available in July 2024, you should run for example, the instructions for installing the version 15.4 in the step number #10 and then run in a new cell the command "!apt-get -y install cuda-15-4".
 
 12. We should wait in steps #9 - #11 for each line of commands to be run in its cell. After this, we should be able to see the following after running the command:
 ```
@@ -80,4 +79,29 @@ Copyright (c) 2005-2023 NVIDIA Corporation
 Built on Tue_Jun_13_19:16:58_PDT_2023
 Cuda compilation tools, release 12.2, V12.2.91
 Build cuda_12.2.r12.2/compiler.32965470_0
+```
+13. Finally, for running our first code block with CUDA, introduce the following in a new cell:
+
+```
+%%writefile hello.cu
+#include <stdio.h>
+__global__ void mykernel(void){
+}
+
+int main(void){
+    mykernel <<<1,1>>>();
+    printf("Hello, world!\n");
+    return 0;
+}
+```
+run it, and then run in the next cell the compiling + running option:
+
+```
+!nvcc hello.cu -run
+```
+
+which successfully shows the text output:
+
+```
+Hello, world!
 ```
